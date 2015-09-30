@@ -12,4 +12,4 @@ Repositório contendo os códigos do projeto da disciplina MAC0242 dada por Fáb
 Esqueleto básico
 ----------------
 
-![alt text](https://photos-1.dropbox.com/t/2/AABgI8RW3KXZV1VZJxRWpAYktCMiRkUs1YDEJNuK_0hqwQ/12/292775129/jpeg/32x32/1/_/1/2/IMG_20150930_131755.jpg/ENvz7ZsCGJkCIAIoAg/Ghj8fmoHUTgph6ITYnBmvYyGjA_uPXlyNWwiSnRbFfQ?size=1024x768&size_mode=2)
+![alt text](https://github.com/blackjuice/Progrules/blob/master/images/sketchSkeleton.jpg?raw=true)
