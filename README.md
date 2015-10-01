@@ -9,6 +9,9 @@ Repositório contendo os códigos do projeto da disciplina MAC0242 dada por Fáb
 
 *Integrantes: Antonio Augusto Abello, Leonardo Daneu, Lucas Sung Jun Hong e Pedro Rodrigues*
 
+###Quick links
+* [PivotalTracker](https://www.pivotaltracker.com/n/projects/1423058)
+
 Esqueleto básico
 ----------------
 
