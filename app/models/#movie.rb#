@@ -1,3 +1,0 @@
-class Professor < ActiveRecord::Base
-  attr_accessible :user, :pass_hash
-end
