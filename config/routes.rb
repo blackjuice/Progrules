@@ -5,6 +5,10 @@ Progrules::Application.routes.draw do
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
   root :to => 'login#index'
+  get 'login/new', to: 'login#new'
+  put 'login', to: 'login#create'
+  post 'login', to: 'login#post'
+
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)

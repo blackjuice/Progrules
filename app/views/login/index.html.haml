@@ -3,12 +3,12 @@
 
 
 %p Login professor:
-%form{:action => "/", :method=> "post"}
+%form{:action => "login", :method=> "post"}
   %label Username 
-  %input
+  %input{:name => "name"}
   %label Senha 
-  %input{:type => "password"}
+  %input{:name => "pass", :type => "password"}
   %button{:type => "submit"} Login
 
-
+%a{:href => 'login/new'} Cadastro de administrador
 
