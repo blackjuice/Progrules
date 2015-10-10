@@ -6,8 +6,9 @@ Progrules::Application.routes.draw do
   # Keep in mind you can assign values other than :controller and :action
   root :to => 'login#index'
   get 'login/new', to: 'login#new'
-  put 'login', to: 'login#create'
+  get 'login', to: 'login#create'
   post 'login', to: 'login#post'
+  get 'user', to: 'user#index'
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase

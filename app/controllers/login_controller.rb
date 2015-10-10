@@ -14,8 +14,13 @@ class LoginController < ApplicationController
   def post
     name = params[:name]
     pass = params[:pass]
-    status = User.login_try(name, pass)
-    if (status)
+    sha256 = Digest::SHA256.new
+    pass = sha256.hexdigest pass
+    status = User.where(name: name).first
+
+    if (status.nil?)
+      redirect_to "http://www.duckduckgo.com"
+    elsif (status.pass_hash == pass)
       redirect_to "http://www.google.com.br"
     else
       redirect_to "http://www.bing.com"
@@ -23,14 +28,24 @@ class LoginController < ApplicationController
   end
 
   def create
-    sha256 = Digest::SHA256.new
-    user = User.new
-    user.name = params[:name]
-    user.pass = sha256.digest params[:pass]
-    user.type = "Admin"
-    user.save
-    redirect_to root
-    flash[:notice] = "Usuário criado com sucesso"
+    if (!(params[:name].blank?) and !(params[:pass].blank?))
+      flag = false
+      sha256 = Digest::SHA256.new
+      begin
+        user = User.new
+        user.name = params[:name]
+        user.pass_hash = sha256.hexdigest params[:pass]
+        user.position = "Admin"
+        user.save
+      rescue ActiveRecord::RecordNotUnique
+        flash[:notice] = "Já existe um usuário com esse nome"
+        flag = true
+      end
+      if (!flag)
+        flash[:notice] = "Usuário criado com sucesso"
+      end
+    end
+    redirect_to "/"
   end
 end
 
