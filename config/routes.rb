@@ -8,7 +8,10 @@ Progrules::Application.routes.draw do
   get 'login/new', to: 'login#new'
   get 'login', to: 'login#create'
   post 'login', to: 'login#post'
+  delete 'login', to: 'login#destroy'
   get 'user', to: 'user#index'
+  get 'professor', to: 'professor#index'
+
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase

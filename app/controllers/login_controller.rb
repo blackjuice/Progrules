@@ -4,7 +4,9 @@ require 'digest' #hash
 class LoginController < ApplicationController
   def index #pagina principal
     #trivial
-    #adicionar código para checar :session se já estiver logado
+    if (session[:position] == "Admin")
+      redirect_to "/professor"
+    end
   end
 
   def new
@@ -19,12 +21,14 @@ class LoginController < ApplicationController
     status = User.where(name: name).first
 
     if (status.nil?)
-      redirect_to "http://www.duckduckgo.com"
+      flash[:notice] = "usuário não encontrado"
     elsif (status.pass_hash == pass)
-      redirect_to "http://www.google.com.br"
+      session[:name] = status.name
+      session[:position] = status.position
     else
-      redirect_to "http://www.bing.com"
+      flash[:notice] = "senha incorreta"
     end
+    redirect_to "/"
   end
 
   def create
@@ -45,6 +49,11 @@ class LoginController < ApplicationController
         flash[:notice] = "Usuário criado com sucesso"
       end
     end
+    redirect_to "/"
+  end
+
+  def destroy
+    reset_session
     redirect_to "/"
   end
 end
