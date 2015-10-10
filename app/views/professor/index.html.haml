@@ -1,8 +1,10 @@
 %h1 Menu principal 
 
+%h3= flash[:notice]
+
 = button_to 'Logout', login_path(), :method => :delete
 
 %p Lista de alunos
 %p Adicionar aluno via excel
-%a{:href => 'user/index'} Adicionar aluno manualmente
+%a{:href => 'aluno/new'} Adicionar aluno manualmente
 %p Gerar grupos

@@ -1,0 +1,13 @@
+%h1 Inserir novo aluno
+
+= form_tag do
+  = label :aluno, :name, 'Nome'
+  = text_field :aluno, 'nome'
+
+  = label :aluno, :classe, 'Classe'
+  = select :aluno, :classe, ['A', 'B', 'C']
+
+  = label :aluno, :sexo, 'Sexo'
+  = select :aluno, :sexo, ['M', 'F']
+
+  = submit_tag 'Inserir'

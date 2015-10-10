@@ -6,13 +6,14 @@ Progrules::Application.routes.draw do
   # Keep in mind you can assign values other than :controller and :action
   root :to => 'login#index'
   get 'login/new', to: 'login#new'
-  get 'login/new_aluno', to: 'login#new_aluno'
   get 'login', to: 'login#create'
   post 'login', to: 'login#post'
   delete 'login', to: 'login#destroy'
   get 'user', to: 'user#index'
   get 'user/index', to: 'user#index'
   get 'professor', to: 'professor#index'
+  get 'aluno/new', to: 'aluno#new'
+  post 'aluno/new', to: 'aluno#create'
 
 
   # Sample of named route:
