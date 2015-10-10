@@ -19,8 +19,8 @@ class CreateAlunos < ActiveRecord::Migration
 
     create_table :preferencias do |t|
       t.string :ordem
-      t.belongs_to :aluno, foreign_key: "preferido_id"
-      t.belongs_to :aluno, foreign_key: "preferente_id"
+      t.belongs_to :preferido, :class_name => "Aluno"
+      t.belongs_to :preferente, :class_name => "Aluno"
       t.timestamps
     end
   end
