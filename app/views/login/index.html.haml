@@ -11,5 +11,15 @@
   %input{:name => "pass", :type => "password"}
   %button{:type => "submit"} Login
 
+%p Login aluno:
+%form{:action => "login", :method=> "post"}
+  %label Username 
+  %input{:name => "name"}
+  %label Senha 
+  %input{:name => "pass", :type => "password"}
+  %button{:type => "submit"} Login
+
 %a{:href => 'login/new'} Cadastro de administrador
+
+%a{:href => 'login/new_aluno'} Cadastro de aluno
 
