@@ -15,6 +15,12 @@ O software desse projeto do Progrules é basicamente um organizador de grupos de
 
 ###Instalação
 
+Em um Terminal, entre com o comando:
+
+    $ git clone https://github.com/blackjuice/Progrules
+    $ rails s
+
+Em seguida, em um browser como Google Chrome, entre com o link: [http://localhost:3000](http://localhost:3000)
 
 ###Quick links
 * [PivotalTracker](https://www.pivotaltracker.com/n/projects/1423058)
