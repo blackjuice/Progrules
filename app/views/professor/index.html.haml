@@ -4,7 +4,7 @@
 
 = button_to 'Logout', login_path(), :method => :delete
 
-%p Lista de alunos
+%a{:href => 'alunos'} Lista de alunos
 %p Adicionar aluno via excel
-%a{:href => 'aluno/new'} Adicionar aluno manualmente
+%a{:href => 'alunos/new'} Adicionar aluno manualmente
 %p Gerar grupos

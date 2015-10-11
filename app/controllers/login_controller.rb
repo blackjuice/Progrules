@@ -6,6 +6,8 @@ class LoginController < ApplicationController
     #trivial
     if (session[:position] == "Admin")
       redirect_to "/professor"
+    elsif (session[:position] == "Aluno")
+      redirect_to "/preferencia"
     end
   end
 
@@ -13,6 +15,7 @@ class LoginController < ApplicationController
     #cadastro de professor/admin
   end
 
+  #login
   def post
     name = params[:name]
     pass = params[:pass]

@@ -5,6 +5,13 @@ require 'digest' #hash
 class AlunoController < ApplicationController
   #Inserir novo aluno
   #TO-DO: achar um jeito inteligente de impedir não logados de entrarem em lugares secretos
+  def index
+    unless session[:position] == "Admin"
+      redirect_to "/"
+    end
+   @alunos = Aluno.order("classe, name").all()
+  end
+
   def new
     unless session[:position] == "Admin"
       redirect_to "/"

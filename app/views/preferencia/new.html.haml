@@ -1,0 +1,13 @@
+%h1 Inserir preferências
+
+= form_tag do
+  = label :preferencia, :preferencia1, 'Escolha 1'
+  = select :preferencia, :preferencia1, @possible_names
+  %br
+  = label :preferencia, :preferencia2, 'Escolha 2'
+  = select :preferencia, :preferencia2, @possible_names
+  %br
+  = label :preferencia, :preferencia3, 'Escolha 3'
+  = select :preferencia, :preferencia3, @possible_names
+  %br
+  = submit_tag 'Inserir'

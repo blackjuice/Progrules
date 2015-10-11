@@ -3,15 +3,7 @@
 
 %h3= flash[:notice]
 
-%p Login professor:
-%form{:action => "login", :method=> "post"}
-  %label Username 
-  %input{:name => "name"}
-  %label Senha 
-  %input{:name => "pass", :type => "password"}
-  %button{:type => "submit"} Login
-
-%p Login aluno:
+%p Login:
 %form{:action => "login", :method=> "post"}
   %label Username 
   %input{:name => "name"}

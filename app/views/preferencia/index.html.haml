@@ -1,0 +1,16 @@
+%h1 Lista de preferências
+
+= button_to 'Logout', login_path(), :method => :delete
+
+%table
+  %thead
+    %tr
+      %th Nome
+      %th Ordem
+  %tbody
+    - @list.each do |pref|
+      %tr
+        %td= pref.preferido.name
+        %td= pref.ordem
+
+%a{:href=> "preferencia/new"}Inserir Preferências

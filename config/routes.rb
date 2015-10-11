@@ -12,8 +12,13 @@ Progrules::Application.routes.draw do
   get 'user', to: 'user#index'
   get 'user/index', to: 'user#index'
   get 'professor', to: 'professor#index'
-  get 'aluno/new', to: 'aluno#new'
-  post 'aluno/new', to: 'aluno#create'
+  get 'alunos', to: 'aluno#index'
+  get 'alunos/new', to: 'aluno#new'
+  post 'alunos/new', to: 'aluno#create'
+  get 'preferencia', to: 'preferencia#index'
+  get 'preferencia/new', to: 'preferencia#new'
+  post 'preferencia/new', to: 'preferencia#create'
+
 
 
   # Sample of named route:
