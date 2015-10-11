@@ -18,7 +18,12 @@ O software desse projeto do Progrules é basicamente um organizador de grupos de
 Em um Terminal, entre com o comando:
 
     $ git clone https://github.com/blackjuice/Progrules
-    $ rails s
+    $ cd Progrules
+    $ rvm use ruby-2.2.2
+    $ bundle install
+    $ rake db:create
+    $ rake db:migrate
+    $ rails server
 
 Em seguida, em um browser como Google Chrome, entre com o link: [http://localhost:3000](http://localhost:3000)
 
