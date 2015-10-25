@@ -18,6 +18,11 @@ Progrules::Application.routes.draw do
   get 'preferencia', to: 'preferencia#index'
   get 'preferencia/new', to: 'preferencia#new'
   post 'preferencia/new', to: 'preferencia#create'
+  get 'alunos/edit/:id', to: 'aluno#edit'
+  post 'alunos/edit/:id', to: 'aluno#update'
+  delete 'alunos/delete/:id', to: 'aluno#destroy'
+
+
 
 
 

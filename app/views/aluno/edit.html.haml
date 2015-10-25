@@ -1,0 +1,13 @@
+%h1 Ediçao de aluno
+
+= form_tag do
+  = label :aluno, :name, 'Nome'
+  = text_field_tag 'aluno[nome]', @aluno.name
+
+  = label :aluno, :classe, 'Classe'
+  = select :aluno, :classe, ['A', 'B', 'C', 'D']
+
+  = label :aluno, :sexo, 'Sexo'
+  = select :aluno, :sexo, ['M', 'F']
+
+  = submit_tag 'Editar'

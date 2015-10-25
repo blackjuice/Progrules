@@ -55,4 +55,26 @@ class AlunoController < ApplicationController
     end
     redirect_to '/professor'
   end
+
+  def edit
+    @aluno = Aluno.find params[:id]
+  end
+
+  def update
+    aluno = Aluno.find params[:id]
+    received = params[:aluno]
+    aluno.name = received['nome']
+    aluno.classe = received['classe']
+    aluno.sexo = received['sexo']
+    aluno.save
+    redirect_to '/alunos'
+  end
+    
+  def destroy
+    aluno = Aluno.find params[:id]
+    aluno.user.destroy
+    aluno.destroy
+    redirect_to '/alunos'
+  end
+
 end

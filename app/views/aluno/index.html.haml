@@ -14,3 +14,7 @@
         %td= aluno.sexo
         %td= aluno.classe
         %td= aluno.rand_pass
+        %td 
+          %a{:href => 'alunos/edit/' + aluno.id.to_s}= "Editar"
+        %td= button_to 'Deletar', 'alunos/delete/' + aluno.id.to_s, :method => :delete
+         
