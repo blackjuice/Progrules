@@ -13,4 +13,4 @@
         %td= pref.preferido.name
         %td= pref.ordem
 
-%a{:href=> "preferencia/new"}Inserir Preferências
+%a{:href=> "preferencia/new"}= (@edit ? "Editar" : "Inserir") + " Preferências"

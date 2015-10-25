@@ -6,6 +6,7 @@ class PreferenciaController < ApplicationController
     end
     aluno = Aluno.where(name: session[:name]).first
     @list = Preferencia.where(preferente_id: aluno.id)
+    @edit = @list.size > 0
   end
 
   def new
