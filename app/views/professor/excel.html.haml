@@ -1,0 +1,15 @@
+%h1 Inserir aluno por Excel
+
+= form_tag '/upload', multipart: true do 
+  %p
+    %label Arquivo
+    = file_field_tag 'file'
+  %p
+    %label Sem preferencias
+    = radio_button_tag 'prefs', 'false', true
+
+  %p
+    %label Com preferencias
+    = radio_button_tag 'prefs', 'true', false
+
+  = submit_tag 'Inserir'
