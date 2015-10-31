@@ -3,4 +3,12 @@ class Aluno < ActiveRecord::Base
   has_one :user
   has_many :preferencias
   has_many :alunos, through: :preferencias
+
+  def self.classes
+    return ["A", "B", "C", "D"]
+  end
+  
+  def self.sexos
+    return ["M", "F"]
+  end
 end

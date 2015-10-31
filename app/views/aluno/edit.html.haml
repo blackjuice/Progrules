@@ -5,9 +5,9 @@
   = text_field_tag 'aluno[nome]', @aluno.name
 
   = label :aluno, :classe, 'Classe'
-  = select :aluno, :classe, ['A', 'B', 'C', 'D']
+  = select :aluno, :classe, @classes
 
   = label :aluno, :sexo, 'Sexo'
-  = select :aluno, :sexo, ['M', 'F']
+  = select :aluno, :sexo, @sexos
 
   = submit_tag 'Editar'

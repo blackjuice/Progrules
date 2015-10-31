@@ -16,6 +16,8 @@ class AlunoController < ApplicationController
     unless session[:position] == "Admin"
       redirect_to "/"
     end
+    @classes = Aluno.classes
+    @sexos = Aluno.sexos
   end
 
   def create
@@ -58,6 +60,8 @@ class AlunoController < ApplicationController
 
   def edit
     @aluno = Aluno.find params[:id]
+    @classes = Aluno.classes
+    @sexos = Aluno.sexos
   end
 
   def update
