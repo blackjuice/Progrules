@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 require 'csv' #abrir arquivos csv
 
 class ProfessorController < ApplicationController

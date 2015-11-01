@@ -2,7 +2,7 @@
 class PreferenciaController < ApplicationController
   def index
     unless session[:position] == "Aluno"
-      redirect_to "/"
+      redirect_to root_path
     end
     aluno = Aluno.where(name: session[:name]).first
     @list = Preferencia.where(preferente_id: aluno.id)
@@ -11,7 +11,7 @@ class PreferenciaController < ApplicationController
 
   def new
     unless session[:position] == "Aluno"
-      redirect_to "/"
+      redirect_to root_path
     end
     @possible_names = Array.new()
     @possible_names.push('')
@@ -46,6 +46,6 @@ class PreferenciaController < ApplicationController
         end
       end
     end
-    redirect_to "/"
+    redirect_to root_path
   end
 end

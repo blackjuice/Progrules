@@ -31,7 +31,7 @@ class LoginController < ApplicationController
     else
       flash[:notice] = "senha incorreta"
     end
-    redirect_to "/"
+    redirect_to root_path
   end
 
   def create
@@ -52,12 +52,12 @@ class LoginController < ApplicationController
         flash[:notice] = "Usuário criado com sucesso"
       end
     end
-    redirect_to "/"
+    redirect_to root_path
   end
 
   def destroy
     reset_session
-    redirect_to "/"
+    redirect_to root_path
   end
 end
 

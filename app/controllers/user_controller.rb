@@ -11,13 +11,13 @@ class UserController < ApplicationController
   def create
     @user = User.create!(params[:user])
     flash[:notice] = "#{user.name} foi adicionado com sucesso."
-    redirect_to "/"
+    redirect_to root_path
   end
 
   def destroy
     @user = User.find(params[:name])
     @user.destroy
     flash[:notice] = "Aluno removido com sucesso."
-    redirect_to "/"
+    redirect_to root_path
   end
 end
