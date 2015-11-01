@@ -1,9 +1,9 @@
-%h1 Inserir aluno por Excel
+%h1 Inserir aluno por Excel/CSV
 
-= form_tag '/upload', multipart: true do 
+= form_tag '', multipart: true do 
   %p
-    %label Arquivo
-    = file_field_tag 'file'
+    %label Arquivo (Salvar em CSV)
+    = file_field_tag 'file', :accept => "text/csv"
   %p
     %label Sem preferencias
     = radio_button_tag 'prefs', 'false', true

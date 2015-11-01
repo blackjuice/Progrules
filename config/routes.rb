@@ -22,6 +22,7 @@ Progrules::Application.routes.draw do
   post 'alunos/edit/:id', to: 'aluno#update'
   delete 'alunos/delete/:id', to: 'aluno#destroy'
   get 'professor/excel', to: 'professor#excel'
+  post 'professor/excel', to: 'professor#upload'
 
 
 
