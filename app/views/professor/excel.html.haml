@@ -1,3 +1,6 @@
+= stylesheet_link_tag "application"
+= javascript_include_tag "controller"
+
 %h1 Inserir aluno por Excel/CSV
 
 = form_tag '', multipart: true do 
@@ -6,10 +9,30 @@
     = file_field_tag 'file', :accept => "text/csv"
   %p
     %label Sem preferencias
-    = radio_button_tag 'prefs', 'false', true
+    = radio_button_tag 'prefs', 'false', true, onchange: "changeModel(false)"
 
   %p
     %label Com preferencias
-    = radio_button_tag 'prefs', 'true', false
+    = radio_button_tag 'prefs', 'true', false, onchange: "changeModel(true)"
 
   = submit_tag 'Inserir'
+
+.modelo#semprefs
+  %p Modelo sem preferencias:
+  %div{:class=>'excel'}
+    %div{:class=>'line'}
+      %div{:class=>'row'} Classe
+      %div{:class=>'row'} Nome do Aluno
+      %div{:class=>'row'} Sexo
+
+.hidden#comprefs
+  %p Modelo com preferencias:
+  %div{:class=>'excel'}
+    %div{:class=>'line'}
+      %div{:class=>'row'} Classe
+      %div{:class=>'row'} Nome do Aluno
+      %div{:class=>'row'} Sexo
+      %div{:class=>'row'} Primeira preferencia
+      %div{:class=>'row'} ...
+      %div{:class=>'row'} Enesima preferencia
+

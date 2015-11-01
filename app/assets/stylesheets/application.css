@@ -11,3 +11,30 @@
  *= require_self
  *= require_tree .
  */
+
+.modelo{
+    background-color: aquamarine;
+    border: 1px solid black;
+    width: 50%;
+    position: relative;
+    left: 45%;
+    bottom: 45%;
+    padding: 0.5%;
+}
+
+.hidden{
+    display: none
+}
+
+.excel .line{
+    border: 1px solid black;
+}
+
+.line .row{
+    border-right: 1px solid black;
+    display: inline-block;
+    padding-left: 2.1%;
+    padding-right: 2.1%; 
+}
+
+
