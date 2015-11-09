@@ -19,14 +19,16 @@ class ProfessorController < ApplicationController
                
   def upload 
     preferencias = params[:prefs]
+    @text = ""
     if (params[:file])
-      @text = "<p>Temos arquivo</p>"
+      @text += "<p>Temos arquivo</p>"
       condition = testCSV(params[:file].path, preferencias)
-      if (condition[:status])
+      if (condition[:status] == 0 || condition[:status] == 1) #sucesso, sucesso com avisos
         @text += "<p>Teste com sucesso!</p>"
+        @text += condition[:text]
         num_row = 1
         CSV.foreach(params[:file].path) do |row|
-         test = Aluno.insere_aluno(row[0], row[1], row[2])
+          test = Aluno.insere_aluno(row[0], row[1], row[2])
           unless (test[:status])
             @text += "<p>Erro @ linha #{num_row}: " + test[:text] + "</p>"
           end
