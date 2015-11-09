@@ -19,7 +19,14 @@ Em um Terminal, entre com o comando:
 
     $ git clone https://github.com/blackjuice/Progrules
     $ cd Progrules
+
+Install bundler + Specify Ruby version
+
+    $ gem install bundler
     $ rvm use ruby-2.2.2
+    
+Mount app
+
     $ bundle install
     $ rake db:create
     $ rake db:migrate
