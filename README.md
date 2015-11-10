@@ -20,7 +20,7 @@ Em um Terminal, entre com o comando:
 Install bundler + Specify Ruby version
 
     $ gem install bundler
-    $ rvm use ruby-2.2.2
+    $ rvm use ruby-1.9.3-p448
     
 Mount app
 
