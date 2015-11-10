@@ -3,6 +3,9 @@
 
 %h1 Inserir aluno por Excel/CSV
 
+= button_to 'Logout', login_path(), :method => :delete
+= button_to "Go Back", '..', :onclick => 'history.back(); return false;'
+
 = form_tag '', multipart: true do 
   %p
     %label Arquivo (Salvar em CSV)
