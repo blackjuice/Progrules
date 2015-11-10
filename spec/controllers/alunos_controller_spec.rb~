@@ -1,0 +1,64 @@
+require 'rails_helper'
+
+RSpec.describe AlunosController, type: :controller do
+
+  let(:valid_attributes) {
+    skip("Add a hash of attributes valid for your model")
+  }
+
+  let(:invalid_attributes) {
+    skip("Add a hash of attributes invalid for your model")
+  }
+ 
+  let(:valid_session) { {} }
+
+  describe "GET #index" do
+    it "assigns all alunos as alunos" do
+      aluno = Aluno.create! valid_attributes
+      get :index, {}, valid_session
+      expect(assigns(:alunos)).to eq([aluno])
+    end
+  end
+
+  describe "GET #new" do
+    let(:alunos) { [FactoryGirl.build(:aluno)] }
+
+    before :each do
+      get :new, {}, valid_session
+    end
+  end
+
+  describe "POST #create" do
+    context "with valid params" do
+      it "creates a new Aluno" do
+        expect {
+          post :create, {:pokemon => valid_attributes}, valid_session
+        }.to change(Pokemon, :count).by(1)
+      end
+      
+      it "assigns a newly created aluno as @aluno" do
+        post :create, {:aluno => valid_attributes}, valid_session
+        expect(assigns(:aluno)).to be_a(Aluno)
+        expect(assigns(:aluno)).to be_persisted
+      end
+
+      it "redirects to the created aluno" do
+        post :create, {:aluno => valid_attributes}, valid_session
+        expect(response).to redirect_to(Pokemon.last)
+      end
+    end
+
+    context "with invalid params" do
+      it "assigns a newly created but unsaved aluno as @aluno" do
+        post :create, {:aluno => invalid_attributes}, valid_session
+        expect(assigns(:aluno)).to be_a_new(Aluno)
+      end
+
+      it "re-renders the 'new' template" do
+        post :create, {:aluno => invalid_attributes}, valid_session
+        expect(response).to render_template("new")
+      end
+    end
+  end
+
+end  

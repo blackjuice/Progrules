@@ -1,0 +1,24 @@
+Feature: Aluno Creation
+  In order to fill my list
+  As an Admin
+  I want to be able to create new aluno entries
+
+  Scenario: with valid fields
+    Given I have an aluno with name "Gideao" and rand_pass "AABBCC" and classe "C" and sexo "M"
+    And I am at the aluno creation page
+    When I fill the "Name" field with "Gideão"
+    And I fill the "rand_pass" field with "AABBCC"
+    And I fill the "classe" field with "C"
+    And I fill the "sexo" field with "M"
+    And I set the selection field "Preferencias" to "Davi"
+    And I press the "Create Aluno" button
+    Then I should see "Gideao"
+    And I should see "AABBCC"
+    And I should see "C"
+    And I should see "M"
+    And I should see "Davi"
+
+  Scenario: without a name
+    Given I am at the aluno creation page
+    When I press the "Create Aluno" button
+    Then I should see "Name can't be blank"
