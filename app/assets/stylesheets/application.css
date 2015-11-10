@@ -11,6 +11,9 @@
  *= require_self
  *= require_tree .
  */
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
 
 .modelo{
     background-color: aquamarine;
