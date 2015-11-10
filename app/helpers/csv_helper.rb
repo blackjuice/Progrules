@@ -45,17 +45,18 @@ module CsvHelper
     if preferencias
       row_number = 1
       CSV.foreach(filepath) do |row|
-        row.each do |testname|
-          unless names.include? testname || testname != ""
-            #Se nao esta no excel pode estar ainda no banco
+        (3..(row.count - 1)).each { |i|
+          unless (names.include? row[i]) || (row[i].blank?)
+            #preferencia vazia e' valida
+            #Se nao esta no excel pode estar ainda no banco             
             begin
-              aluno = Aluno.where("name = ?", testname).first!
-            rescue ActiveRecord::RecordNotFound
-              result[:status] = 1
-              result[:text] += "<p>Aviso: Aluno #{testname} nao existe no banco ou excel @ linha #{row_number}, nao foi inserida preferencia</p>"
+             aluno = Aluno.where("name = ?", row[i]).first!
+           rescue ActiveRecord::RecordNotFound
+             result[:status] = 1
+             result[:text] += "<p>Aviso: Aluno #{row[i]} nao existe no banco ou excel @ linha #{row_number}, nao foi inserida preferencia</p>"
             end
           end
-        end
+        }
         row_number += 1
       end
       if result[:status] == 1

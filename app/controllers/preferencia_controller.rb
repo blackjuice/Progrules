@@ -9,6 +9,10 @@ class PreferenciaController < ApplicationController
     @edit = @list.size > 0
   end
 
+  def show
+    @preferencia = Preferencia.all()
+  end
+
   def new
     unless session[:position] == "Aluno"
       redirect_to root_path
@@ -24,7 +28,7 @@ class PreferenciaController < ApplicationController
   def create
     if (received = params[:preferencia])
       aluno = Aluno.where(name: session[:name]).first
-      [1, 2, 3].each do |i| #TO-DO usar js para fazer arbitrariamente grande
+      [1, 2, 3].each do |i| #TO-DO usar js para fazer arbitrariamente grande - parte 3 segundo Kon
         #Checa se é preferencia
         if (!received['preferencia' + i.to_s].blank?)
 

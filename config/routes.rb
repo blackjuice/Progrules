@@ -26,6 +26,7 @@ Progrules::Application.routes.draw do
   delete 'alunos/delete/:id', to: 'aluno#destroy'
   get 'professor/excel', to: 'professor#excel'
   post 'professor/excel', to: 'professor#upload'
+  get 'preferencia/show', to: 'preferencia#show'
 
 
 
