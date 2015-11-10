@@ -33,29 +33,3 @@ Em seguida, em um browser como Google Chrome, entre com o link: [http://localhos
 
 ###Quick links
 * [PivotalTracker](https://www.pivotaltracker.com/n/projects/1423058)
-
-##Record: Erros na instalação
-
-####Issue: json-1.8.3 Gem::Ext::BuildError: ERROR: Failed to build gem native extension
-
-Após ``bundle install --without production``, recebi o seguinte warning:
-
-    Gem::InstallError: rack-cache requires Ruby version >= 2.0.0.
-    An error occurred while installing rack-cache (1.3.0), and Bundler cannot continue.
-    Make sure that `gem install rack-cache -v '1.3.0'` succeeds before bundling.
-
-O comando ``rvm use ruby-2.2.2`` não resolveu. Chequei versão: ``bundle -v`` e recebi:
-
-    /usr/local/rvm/rubies/ruby-2.2.2/lib/ruby/site_ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require': cannot load such file -- bundler (LoadError)
-    from /usr/local/rvm/rubies/ruby-2.2.2/lib/ruby/site_ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
-    from /usr/bin/bundle:7:in `<main>'
-
-Para isso, executei ``gem install bundler`` e em seguida ``bundle install --without production``, e recebi:
-
-    An error occurred while installing json (1.8.3), and Bundler cannot continue.
-    Make sure that `gem install json -v '1.8.3'` succeeds before bundling.
-    
-Comando ``gem install json -v '1.8.3'`` não resolveu. Chequei ``gem list`` e confirmei que de fato ``json (1.8.1)`` ainda não foi atualizado.
-
-Por fim, neste [forum](https://github.com/flori/json/issues/253), foi recomendado executar: ``sudo apt-get install libgmp3-dev``, o que resolveu o problema.
-
