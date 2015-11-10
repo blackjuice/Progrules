@@ -1,4 +1,7 @@
 Progrules::Application.routes.draw do
+  resources :widgets
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
   # Sample of regular route:

@@ -45,7 +45,7 @@ module CsvHelper
     if preferencias
       row_number = 1
       CSV.foreach(filepath) do |row|
-        row.each |testname| do
+        row.each do |testname|
           unless names.include? testname || testname != ""
             #Se nao esta no excel pode estar ainda no banco
             begin

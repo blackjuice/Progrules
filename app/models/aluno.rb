@@ -4,9 +4,13 @@ require 'digest' #hash
 class Aluno < ActiveRecord::Base
   attr_accessible :name, :rand_pass, :classe, :sexo
   has_one :user
-  has_many :preferencias
+  has_many :preferencias, :foreign_key => "preferido_id"
   has_many :alunos, through: :preferencias
-
+  
+  validates :name, presence: true
+  validates :rand_pass, presence: true
+  validates :classe, presence: true
+  validates :sexo, presence: true
   def self.classes
     return ["A", "B", "C", "D"]
   end
