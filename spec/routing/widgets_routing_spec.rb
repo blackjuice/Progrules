@@ -1,4 +1,12 @@
-require "rails_helper"
+require 'rails_helper'
+require 'simplecov'
+require 'simplecov-rcov'
+class SimpleCov::Formatter::MergedFormatter
+  def format(result)
+     SimpleCov::Formatter::HTMLFormatter.new.format(result)
+     SimpleCov::Formatter::RcovFormatter.new.format(result)
+  end
+end
 
 RSpec.describe WidgetsController, :type => :routing do
   describe "routing" do
