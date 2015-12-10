@@ -30,7 +30,7 @@ Mount app
     $ rails server
     
 ###Compilação
-Instale e configure o GNU Linear Programming Kit (GLPK)
+Instale e configure o GNU Linear Programming Kit (GLPK) (provavelmente é melhor executar como superuser)
 
     $ wget http://ftp.gnu.org/gnu/glpk/glpk-4.57.tar.gz
     $ tar -zxvf glpk-4.57.tar.gz
