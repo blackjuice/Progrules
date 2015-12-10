@@ -29,22 +29,24 @@
 
   .modelo#semprefs
     %p Modelo sem preferencias:
-    %div{:class=>'excel'}
-      %div{:class=>'line'}
-        %div{:class=>'row'} Classe
-        %div{:class=>'row'} Nome do Aluno
-        %div{:class=>'row'} Sexo
+    %table.table.table-hover.table-bordered
+      %thead
+        %tr
+          %th Classe
+          %th Nome do aluno
+          %th Sexo
 
   .hidden#comprefs
     %p Modelo com preferencias:
-    %div{:class=>'excel'}
-      %div{:class=>'line'}
-        %div{:class=>'row'} Classe
-        %div{:class=>'row'} Nome do Aluno
-        %div{:class=>'row'} Sexo
-        %div{:class=>'row'} Primeira preferencia
-        %div{:class=>'row'} ...
-        %div{:class=>'row'} Enesima preferencia
+    %table.table.table-hover.table-bordered
+      %thead
+        %tr
+          %th Classe
+          %th Nome do aluno
+          %th Sexo
+          %th Primeira preferencia
+          %th ...
+          %th Enesima preferencia
 
 #content
   = yield
