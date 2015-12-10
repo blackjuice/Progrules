@@ -6,6 +6,6 @@ When(/^I press the "(.*?)" button$/) do |caption|
   click_button caption
 end
 
-Then(/^I should see "(.*?)"$/) do |text|
-  expect(page).to have_content(text)
-end
+#Then(/^I should see "(.*?)"$/) do |text|
+#  expect(page).to have_content(text)
+#end
