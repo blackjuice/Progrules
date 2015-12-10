@@ -14,17 +14,20 @@
 
 %h1 Inserir preferências
 
-= form_tag do
-  = label :preferencia, :preferencia1, 'Escolha 1'
-  = select :preferencia, :preferencia1, @possible_names
-  %br
-  = label :preferencia, :preferencia2, 'Escolha 2'
-  = select :preferencia, :preferencia2, @possible_names
-  %br
-  = label :preferencia, :preferencia3, 'Escolha 3'
-  = select :preferencia, :preferencia3, @possible_names
-  %br
-  = submit_tag 'Inserir'
+.well.well-sm
+  %h4 Com atenção, pense em 3 colegas, por ordem de preferência, com quem você gostaria de dividir o quarto durante a Viagem à Espanha:
+
+  = form_tag do
+    = label :preferencia, :preferencia1, 'Escolha 1'
+    = select :preferencia, :preferencia1, @possible_names
+    %br
+    = label :preferencia, :preferencia2, 'Escolha 2'
+    = select :preferencia, :preferencia2, @possible_names
+    %br
+    = label :preferencia, :preferencia3, 'Escolha 3'
+    = select :preferencia, :preferencia3, @possible_names
+    %br
+    = submit_tag 'Inserir', class: "btn btn-primary"
 
 #content
   = yield

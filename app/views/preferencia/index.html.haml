@@ -14,18 +14,22 @@
 
 %h1 Lista de preferências
 
-%table
-  %thead
-    %tr
-      %th Nome
-      %th Ordem
-  %tbody
-    - @list.each do |pref|
-      %tr
-        %td= pref.preferido.name
-        %td= pref.ordem
+%div{:style => "text-align:center"}
+  %a.btn.btn-primary{:href=> "preferencia/new"}= (@edit ? "Editar" : "Inserir") + " Preferências"
 
-%a{:href=> "preferencia/new"}= (@edit ? "Editar" : "Inserir") + " Preferências"
+%br
+
+.well.well-sm  
+  %table.table.table-hover.table-condensed
+    %thead
+      %tr
+        %th Nome
+        %th Ordem
+    %tbody
+      - @list.each do |pref|
+        %tr
+          %td= pref.preferido.name
+          %td= pref.ordem
 
 #content
   = yield
