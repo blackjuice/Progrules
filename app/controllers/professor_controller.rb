@@ -39,14 +39,22 @@ class ProfessorController < ApplicationController
     @text = ""
     sex_bonus = params["gerador"]["sexo"].to_f
     class_bonus = params["gerador"]["classe"].to_f
+    going = Hash.new() #Traduz aluno_id para [0..n de alunos] 
+    coming = Hash.new() #Traduz [0..n de alunos] para aluno_id
     test = Aluno.all()
+    i = 0
+    test.each do |aluno|
+      going[aluno.id] = i
+      coming[i] = aluno.id
+      i = i + 1
+    end
     problem = Matrix.build(test.count, test.count) { |row, col|
       if (row == col)
         0.0
       else
         prefs_value = 0.0
-        aluno = Aluno.find(row + 1)
-        outro = Aluno.find(col + 1)
+        aluno = Aluno.find(coming[row])
+        outro = Aluno.find(coming[col])
         #Checa se aluno tem preferencia
         aluno.preferencias.each do |prefs|
           if prefs.preferente_id == outro.id
