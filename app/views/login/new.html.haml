@@ -21,9 +21,9 @@
       %input{:placeholder => "Senha", :name => "pass", :type => "password"}
       %button.btn.btn-primary{:type => "submit"} Enviar
 
+.flash
+  = flash[:notice]
+
 #content
   = yield
   = render 'layouts/footer'
-
-/%h5= flash[:notice]
-= flash[:notice]

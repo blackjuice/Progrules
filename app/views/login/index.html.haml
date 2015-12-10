@@ -23,7 +23,8 @@
       %button.btn.btn-primary{:type => "submit"} Login
       %a.btn.btn-info{:href => 'login/new'} Novo cadastro
 
-= flash[:notice]
+.flash
+  = flash[:notice]
 
 #content
   = yield

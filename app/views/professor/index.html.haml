@@ -14,13 +14,14 @@
 
 %h1 Menu principal 
 
-%h3= flash[:notice]
-
 .list-group
   %a.list-group-item{:href => 'alunos'} Lista de alunos
   %a.list-group-item{:href => 'professor/excel'} Adicionar aluno via excel
   %a.list-group-item{:href => 'alunos/new'} Adicionar aluno manualmente
   %a.list-group-item{:href => 'professor/gerador'} Gerar grupos
+
+.flash
+  = flash[:notice]
 
 #content
   = yield
