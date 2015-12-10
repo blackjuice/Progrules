@@ -31,6 +31,7 @@ Mount app
     
 ###Compilação
 Instale e configure o GNU Linear Programming Kit (GLPK)
+
     $ wget http://ftp.gnu.org/gnu/glpk/glpk-4.57.tar.gz
     $ tar -zxvf glpk-4.57.tar.gz
     $ cd glpk-4.57
@@ -40,6 +41,7 @@ Instale e configure o GNU Linear Programming Kit (GLPK)
     $ sudo ldconfig
     
 No diretório de scripts (Progrules/scripts)
+
     $ gcc -c first.c
     $ gcc first.o -lglpk -lm -o main
     $ mv main ../
