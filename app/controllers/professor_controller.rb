@@ -118,6 +118,8 @@ class ProfessorController < ApplicationController
         if (preferencias && condition[:status] == 0)
           #inserçao de preferencias so acontece se esta tudo, TUDO bem
           CSV.foreach(params[:file].path) do |row|
+            aluno_name = row[1]
+            aluno_name.strip!
             preferente = Aluno.where(name: aluno_name).first!
             (3..(row.count - 1)).each { |i|
               unless row[i].blank?
