@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'csv' #abrir arquivos csv
 require 'csv_helper.rb'
+require 'matrix'
 
 class ProfessorController < ApplicationController
   include CsvHelper
@@ -16,7 +17,74 @@ class ProfessorController < ApplicationController
       redirect_to root_path
     end
   end
-               
+
+  def gerador
+    unless (session[:position] == "Admin")
+      redirect_to root_path
+    end
+    #Avisa quais alunos n tem preferencias
+    @text = ""
+    @alunos = Aluno.all()
+    @alunos.each do |aluno|
+      if aluno.preferencias.empty?
+        @text += "<p>" + aluno.name + "</p>"
+      end
+    end
+  end
+
+  def results
+    unless (session[:position] == "Admin")
+      redirect_to root_path
+    end
+    @text = ""
+    sex_bonus = params["gerador"]["sexo"].to_f
+    class_bonus = params["gerador"]["classe"].to_f
+    test = Aluno.all()
+    problem = Matrix.build(test.count, test.count) { |row, col|
+      if (row == col)
+        0.0
+      else
+        prefs_value = 0.0
+        aluno = Aluno.find(row + 1)
+        outro = Aluno.find(col + 1)
+        #Checa se aluno tem preferencia
+        aluno.preferencias.each do |prefs|
+          if prefs.preferente_id == outro.id
+            prefs_value += prefs.ordem.to_f
+          end
+        end
+        #Checa se outro tem preferencia
+        outro.preferencias.each do |prefs|
+          if prefs.preferente_id == aluno.id
+            prefs_value += prefs.ordem.to_f
+          end
+        end
+        prefs_value = prefs_value / 2 #media
+        
+        #Checa se tem bonus de sexo
+        if (aluno.sexo != outro.sexo)
+          prefs_value += sex_bonus
+        end
+        #Checa se tem bonus de classe
+        if (aluno.classe != outro.classe)
+          prefs_value += class_bonus
+        end
+        prefs_value
+      end
+    }
+    writer = File.new("mymatrix", "w+")
+    writer.puts(test.count)
+    for i in 0..test.count 
+      for j in 0..test.count
+        writer.write(problem[i, j])
+        writer.write(" ")
+      end
+      writer.write("\n")
+    end
+    writer.close
+    @text = `./main < mymatrix`
+  end
+              
   def upload 
     preferencias = params[:prefs] 
     @text = "" #texto html de resposta
