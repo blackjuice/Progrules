@@ -40,4 +40,9 @@ body {
     padding-right: 2.1%; 
 }
 
-
+.gerador_box{
+    background-color: #e6e6e6;
+    padding-left: 2.1%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+}

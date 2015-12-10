@@ -10,12 +10,6 @@
 
 %h1 Gerar Grupos
 
-= button_to 'Logout', login_path(), :method => :delete
-= button_to "Go Back", '..', :onclick=> 'history.back(); return false;'
-
-%h3 Alunos sem preferencias:
-= @text.html_safe
-
 %h3 Pesos:
 = form_tag do
   = label :gerador, :sexo, 'Sexo'
@@ -24,7 +18,11 @@
   = label :gerador, :classe, 'Classe'
   = select :gerador, :classe, [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
 
-  = submit_tag 'Gerar'
+  = submit_tag 'Gerar', class: "btn btn-danger"
+
+.gerador_box
+  %h3 Alunos sem preferencias:
+  = @text.html_safe
 
 #content
   = yield
