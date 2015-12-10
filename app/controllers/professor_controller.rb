@@ -105,9 +105,11 @@ class ProfessorController < ApplicationController
         CSV.foreach(params[:file].path) do |row|
           aluno_class = row[0]
           aluno_class.strip!
+          aluno_name = row[1]
+          aluno_name.strip!
           aluno_sex = row[2]
           aluno_sex.strip!
-          test = Aluno.insere_aluno(aluno_class, row[1], aluno_sex)
+          test = Aluno.insere_aluno(aluno_class, aluno_name, aluno_sex)
           unless (test[:status])
             @text += "<p>Erro @ linha #{num_row}: " + test[:text] + "</p>" 
           end
@@ -116,9 +118,11 @@ class ProfessorController < ApplicationController
         if (preferencias && condition[:status] == 0)
           #inserçao de preferencias so acontece se esta tudo, TUDO bem
           CSV.foreach(params[:file].path) do |row|
-            preferente = Aluno.where(name: row[1]).first!
+            preferente = Aluno.where(name: aluno_name).first!
             (3..(row.count - 1)).each { |i|
               unless row[i].blank?
+                preferido_name = row[i]
+                preferido_name.strip!
                 ordem = 1 + (i - 3)
                 #Ve se ja existe preferencia dessa ordem
                 test = Preferencia.where(ordem: ordem, preferente_id: preferente.id)
@@ -127,7 +131,7 @@ class ProfessorController < ApplicationController
                   test.first.destroy
                 end
 
-                preferido = Aluno.where(name: row[i]).first!
+                preferido = Aluno.where(name: preferido_name).first!
                 prefs = Preferencia.new()
                 prefs.ordem = ordem
                 prefs.preferente_id = preferente.id
