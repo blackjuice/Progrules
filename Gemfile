@@ -7,7 +7,7 @@ gem 'rails', '3.2.18'
 
 # Gems used only for assets and not required
 # in production environments by default.
-
+gem 'bootstrap-sass', '3.2.0.0'
 
 ########
 ## group :assets do
