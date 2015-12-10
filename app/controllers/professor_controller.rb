@@ -103,7 +103,11 @@ class ProfessorController < ApplicationController
         @text += condition[:text]
         num_row = 1
         CSV.foreach(params[:file].path) do |row|
-          test = Aluno.insere_aluno(row[0], row[1], row[2])
+          aluno_class = row[0]
+          aluno_class.strip!
+          aluno_sex = row[2]
+          aluno_sex.strip!
+          test = Aluno.insere_aluno(aluno_class, row[1], aluno_sex)
           unless (test[:status])
             @text += "<p>Erro @ linha #{num_row}: " + test[:text] + "</p>" 
           end

@@ -22,7 +22,9 @@ module CsvHelper
     #2º teste: formato de arquivo
     row_number = 1
     CSV.foreach(filepath) do |row|
-      unless (Aluno.classes.include? row[0])
+      aluno_class = row[0]
+      aluno_class.strip!
+      unless (Aluno.classes.include? aluno_class)
         result[:status] = 2
         result[:text] = "Classe invalida @ linha #{row_number}"
         return result
@@ -34,12 +36,15 @@ module CsvHelper
       else
         names.push(row[1]) #para testar preferencias depois
       end
-      unless (Aluno.sexos.include? row[2])
+      aluno_sex = row[2]
+      aluno_sex.strip!
+      unless (Aluno.sexos.include? aluno_sex)
         result[:status] = 2
         result[:text] = "Sexo invalido @ linha #{row_number}"
         return result
       end
       row_number += 1
+
     end
     #3º teste: preferencias sao validas
     if preferencias
