@@ -20,8 +20,8 @@
     %fieldset
       %input{:placeholder => "Usuário", :name => "name"}
       %input{:placeholder => "Senha", :name => "pass", :type => "password"}
-      %button.btn.btn-primary{:type => "submit"} Login
-      %a.btn.btn-info{:href => 'login/new'} Novo cadastro
+      %button.btn.btn-danger{:type => "submit"} Login
+      %a.btn.btn-warning{:href => 'login/new'} Novo cadastro
 
 .flash
   = flash[:notice]
