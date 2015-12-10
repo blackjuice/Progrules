@@ -1,14 +1,23 @@
+= stylesheet_link_tag 'application', media: 'all', |
+  'data-turbolinks-track' => true                  |
+= javascript_include_tag 'application', 'data-turbolinks-track' => true
+= csrf_meta_tags
+= render 'layouts/shim'
+
+%header.navbar.navbar-fixed-top.navbar-inverse
+  #container
+    = render 'layouts/header'
+
 %h1 Menu principal 
 
 %h3= flash[:notice]
 
-= button_to 'Logout', login_path(), :method => :delete
+.list-group
+  %a.list-group-item{:href => 'alunos'} Lista de alunos
+  %a.list-group-item{:href => 'professor/excel'} Adicionar aluno via excel
+  %a.list-group-item{:href => 'alunos/new'} Adicionar aluno manualmente
+  %a.list-group-item{:href => 'professor/gerador'} Gerar grupos
 
-%p
-  %a{:href => '/alunos'} Lista de alunos
-%p
-  %a{:href => '/professor/excel'} Adicionar aluno via excel
-%p 
-  %a{:href => '/alunos/new'} Adicionar aluno manualmente
-%p 
-  %a{:href => '/professor/gerador'} Gerar grupos
+#content
+  = yield
+  = render 'layouts/footer'

@@ -1,3 +1,13 @@
+= stylesheet_link_tag 'application', media: 'all', |
+  'data-turbolinks-track' => true                  |
+= javascript_include_tag 'application', 'data-turbolinks-track' => true
+= csrf_meta_tags
+= render 'layouts/shim'
+
+%header.navbar.navbar-fixed-top.navbar-inverse
+  #container
+    = render 'layouts/header'
+
 %h1 Lista de preferências
 
 = button_to 'Logout', login_path(), :method => :delete
@@ -14,3 +24,11 @@
         %td= pref.ordem
 
 %a{:href=> "preferencia/new"}= (@edit ? "Editar" : "Inserir") + " Preferências"
+
+#content
+  = yield
+  = render 'layouts/footer'
+
+#content
+  = yield
+  = render 'layouts/footer'

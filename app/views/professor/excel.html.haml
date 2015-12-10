@@ -1,41 +1,51 @@
-= stylesheet_link_tag "application"
+= stylesheet_link_tag 'application', media: 'all', |
+  'data-turbolinks-track' => true                  |
 = javascript_include_tag "controller"
+= javascript_include_tag 'application', 'data-turbolinks-track' => true
+= csrf_meta_tags
+= render 'layouts/shim'
 
-%h1 Inserir aluno por Excel/CSV
+%header.navbar.navbar-fixed-top.navbar-inverse
+  #container
+    = render 'layouts/header'
 
-= button_to 'Logout', login_path(), :method => :delete
-= button_to "Go Back", '..', :onclick => 'history.back(); return false;'
+.well
+  %h1 Inserir aluno por Excel/CSV
 
-= form_tag '', multipart: true do 
-  %p
-    %label Arquivo (Salvar em CSV)
-    = file_field_tag 'file', :accept => "text/csv"
-  %p
-    %label Sem preferencias
-    = radio_button_tag 'prefs', 'false', true, onchange: "changeModel(false)"
+  = form_tag '', multipart: true do
+    .form-group
+      %label Arquivo (Salvar em CSV)
+      = file_field_tag 'file', :accept => "text/csv"
 
-  %p
-    %label Com preferencias
-    = radio_button_tag 'prefs', 'true', false, onchange: "changeModel(true)"
+    .radio-horizontal
+      %label Sem preferencias
+      = radio_button_tag 'prefs', 'false', true, onchange: "changeModel(false)"
 
-  = submit_tag 'Inserir'
+    .radio-horizontal
+      %label Com preferencias
+      = radio_button_tag 'prefs', 'true', false, onchange: "changeModel(true)"
 
-.modelo#semprefs
-  %p Modelo sem preferencias:
-  %div{:class=>'excel'}
-    %div{:class=>'line'}
-      %div{:class=>'row'} Classe
-      %div{:class=>'row'} Nome do Aluno
-      %div{:class=>'row'} Sexo
+    = submit_tag 'Inserir', class: "btn btn-success"
 
-.hidden#comprefs
-  %p Modelo com preferencias:
-  %div{:class=>'excel'}
-    %div{:class=>'line'}
-      %div{:class=>'row'} Classe
-      %div{:class=>'row'} Nome do Aluno
-      %div{:class=>'row'} Sexo
-      %div{:class=>'row'} Primeira preferencia
-      %div{:class=>'row'} ...
-      %div{:class=>'row'} Enesima preferencia
+  .modelo#semprefs
+    %p Modelo sem preferencias:
+    %div{:class=>'excel'}
+      %div{:class=>'line'}
+        %div{:class=>'row'} Classe
+        %div{:class=>'row'} Nome do Aluno
+        %div{:class=>'row'} Sexo
 
+  .hidden#comprefs
+    %p Modelo com preferencias:
+    %div{:class=>'excel'}
+      %div{:class=>'line'}
+        %div{:class=>'row'} Classe
+        %div{:class=>'row'} Nome do Aluno
+        %div{:class=>'row'} Sexo
+        %div{:class=>'row'} Primeira preferencia
+        %div{:class=>'row'} ...
+        %div{:class=>'row'} Enesima preferencia
+
+#content
+  = yield
+  = render 'layouts/footer'

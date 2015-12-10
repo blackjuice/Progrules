@@ -1,10 +1,25 @@
-%h3 Cadastro de novo professor
+= stylesheet_link_tag 'application', media: 'all', |
+  'data-turbolinks-track' => true                  |
+= javascript_include_tag 'application', 'data-turbolinks-track' => true
+= csrf_meta_tags
+= render 'layouts/shim'
 
-%form{:action => "./", :method => "put"}
-  %label Usuário
-  %input{:name => "name"}
-  %label Senha
-  %input{:name => "pass", :type => "password"}
-  %button{:type => "submit"} Enviar
+%header.navbar.navbar-fixed-top.navbar-inverse
+  #container
+    = render 'layouts/header'
 
-= button_to 'Voltar', login_path(), :method => :delete
+.center.jumbotron
+  %h3 Cadastro de novo professor
+
+  %form.pure-form{:action => "./", :method => "put"}
+    %fieldset
+      %input{:placeholder => "Usuário", :name => "name"}
+      %input{:placeholder => "Senha", :name => "pass", :type => "password"}
+      %button.btn.btn-primary{:type => "submit"} Enviar
+
+#content
+  = yield
+  = render 'layouts/footer'
+
+/%h5= flash[:notice]
+= flash[:notice]
