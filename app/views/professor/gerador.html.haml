@@ -28,6 +28,8 @@
   %h3 Alunos sem preferencias:
   = @text.html_safe
 
+%a.btn.btn-default{:href => professor_path()} Voltar
+
 #content
   = yield
   = render 'layouts/footer'
