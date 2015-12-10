@@ -54,6 +54,11 @@ p {
 
 /* header */
 
+header.navbar.navbar-fixed-top.navbar-inverse {
+  background-color: #4e4040;
+  color: #fff;
+}
+
 #logo {
   float: left;
   margin-right: 10px;
@@ -67,7 +72,7 @@ p {
 }
 
 #logo:hover {
-  color: #fff;
+  color: #ffcc00;
   text-decoration: none;
 }
 
