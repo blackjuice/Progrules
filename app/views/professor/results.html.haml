@@ -1,3 +1,17 @@
-%h1 Resultado
+= stylesheet_link_tag 'application', media: 'all', |
+  'data-turbolinks-track' => true                  |
+= javascript_include_tag 'application', 'data-turbolinks-track' => true
+= csrf_meta_tags
+= render 'layouts/shim'
 
-= @text.html_safe
+%header.navbar.navbar-fixed-top.navbar-inverse
+  #container
+    = render 'layouts/header'
+
+.gerador_box
+  %h1 Resultado
+  = @text.html_safe
+
+#content
+  = yield
+  = render 'layouts/footer'
