@@ -37,7 +37,8 @@ group :test do
   gem "shoulda-matchers", "~> 2.8.0"
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'
-  
+  gem 'simplecov', :require => false
+  gem 'simplecov-rcov', :require => false      
 end
 group :production do
 #  gem 'pg'
