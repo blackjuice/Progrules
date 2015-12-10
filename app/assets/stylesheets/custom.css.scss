@@ -47,22 +47,6 @@ h2 {
   color: #777;
 }
 
-/*
-h5 {
-  //border: 1px;
-  //border-style: solid;
-  //border-color: #ff6699;
-  padding-top: 50%;
-  position: relative;
-  //padding-bottom: 9px;
-  font-size: 15px;
-  //background-color: #ff9999;
-  //border-radius: 3px;
-  text-align: center;
-  color: #ff5050;
-}
-*/
-
 p {
   font-size: 1.1em;
   line-height: 1.7em;
@@ -85,6 +69,34 @@ p {
 #logo:hover {
   color: #fff;
   text-decoration: none;
+}
+
+/* HEADER: stripes */
+stripes ul.stripe {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  list-style: none;
+  width: 100%;
+  font-size: 0;
+}
+
+stripes li {
+  display: inline-block;
+  width: 33%;
+  height: 7px;
+}
+
+stripes li:nth-child(1) {
+  background: #ff5050;
+}
+
+stripes li:nth-child(2) {
+  background: #ffcc00;
+}
+
+stripes li:nth-child(3) {
+  background: #ff5050;
 }
 
 /* footer */
