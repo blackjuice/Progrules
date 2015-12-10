@@ -22,10 +22,9 @@
       %input{:placeholder => "Senha", :name => "pass", :type => "password"}
       %button.btn.btn-primary{:type => "submit"} Login
       %a.btn.btn-info{:href => 'login/new'} Novo cadastro
+
+= flash[:notice]
+
 #content
   = yield
   = render 'layouts/footer'
-
-/.alert.alert-info{:role => "alert"}
-/%h5= flash[:notice]
-= flash[:notice]
