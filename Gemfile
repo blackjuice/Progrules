@@ -7,7 +7,7 @@ gem 'rails', '3.2.18'
 
 # Gems used only for assets and not required
 # in production environments by default.
-
+gem 'bootstrap-sass', '3.2.0.0'
 
 ########
 ## group :assets do
@@ -37,7 +37,8 @@ group :test do
   gem "shoulda-matchers", "~> 2.8.0"
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'
-  
+  gem 'simplecov', :require => false
+  gem 'simplecov-rcov', :require => false      
 end
 group :production do
 #  gem 'pg'

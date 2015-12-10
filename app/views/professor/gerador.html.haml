@@ -1,12 +1,18 @@
-= stylesheet_link_tag "application"
+= stylesheet_link_tag 'application', media: 'all', |
+  'data-turbolinks-track' => true                  |
+= javascript_include_tag 'application', 'data-turbolinks-track' => true
+= csrf_meta_tags
+= render 'layouts/shim'
+
+%header.navbar.navbar-fixed-top.navbar-inverse
+  #container
+    = render 'layouts/header'
+
+%stripes
+  #container
+    = render 'layouts/stripes'
 
 %h1 Gerar Grupos
-
-= button_to 'Logout', login_path(), :method => :delete
-= button_to "Go Back", '..', :onclick=> 'history.back(); return false;'
-
-%h3 Alunos sem preferencias:
-= @text.html_safe
 
 %h3 Pesos:
 = form_tag do
@@ -16,4 +22,12 @@
   = label :gerador, :classe, 'Classe'
   = select :gerador, :classe, [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
 
-  = submit_tag 'Gerar'
+  = submit_tag 'Gerar', class: "btn btn-danger"
+
+.gerador_box
+  %h3 Alunos sem preferencias:
+  = @text.html_safe
+
+#content
+  = yield
+  = render 'layouts/footer'

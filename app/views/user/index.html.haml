@@ -1,5 +1,23 @@
+= stylesheet_link_tag 'application', media: 'all', |
+  'data-turbolinks-track' => true                  |
+= javascript_include_tag 'application', 'data-turbolinks-track' => true
+= csrf_meta_tags
+= render 'layouts/shim'
+
+%header.navbar.navbar-fixed-top.navbar-inverse
+  #container
+    = render 'layouts/header'
+
+%stripes
+  #container
+    = render 'layouts/stripes'
+
 %h1 Users
 
 - @user.each do |user|
   %p= user.name
   %p= user.pass_hash
+
+#content
+  = yield
+  = render 'layouts/footer'

@@ -8,7 +8,12 @@ class SimpleCov::Formatter::MergedFormatter
   end
 end
 
+RSpec.describe ProfessorController, type: :routing do
+  describe "routing" do
 
-RSpec.describe Widget, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+    it "routes to #index" do
+      expect(:get => "/professor").to route_to("professor#index")
+    end
+
+  end
 end

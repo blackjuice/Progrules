@@ -1,16 +1,31 @@
-%h1 Ediçao de aluno
+= stylesheet_link_tag 'application', media: 'all', |
+  'data-turbolinks-track' => true                  |
+= javascript_include_tag 'application', 'data-turbolinks-track' => true
+= csrf_meta_tags
+= render 'layouts/shim'
 
-= button_to 'Logout', login_path(), :method => :delete
-= button_to "Go Back", '..', :onclick => 'history.back(); return false;'
+%header.navbar.navbar-fixed-top.navbar-inverse
+  #container
+    = render 'layouts/header'
+
+%stripes
+  #container
+    = render 'layouts/stripes'
+
+%h1 Ediçao de aluno
 
 = form_tag do
   = label :aluno, :name, 'Nome'
   = text_field_tag 'aluno[nome]', @aluno.name
 
   = label :aluno, :classe, 'Classe'
-  = select :aluno, :classe, @classes
+  = select :aluno, :classe, @classes, class: "form-control"
 
   = label :aluno, :sexo, 'Sexo'
-  = select :aluno, :sexo, @sexos
+  = select :aluno, :sexo, @sexos, class: "form-control"
 
-  = submit_tag 'Editar'
+  = submit_tag 'Editar', class: "btn btn-primary"
+
+#content
+  = yield
+  = render 'layouts/footer'

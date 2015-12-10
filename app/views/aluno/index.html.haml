@@ -1,23 +1,38 @@
-%h1 Lista de alunos
+= stylesheet_link_tag 'application', media: 'all', |
+  'data-turbolinks-track' => true                  |
+= javascript_include_tag 'application', 'data-turbolinks-track' => true
+= csrf_meta_tags
+= render 'layouts/shim'
 
-= button_to 'Logout', login_path(), :method => :delete
-= button_to "Go Back", '..', :onclick => 'history.back(); return false;'
+%header.navbar.navbar-fixed-top.navbar-inverse
+  #container
+    = render 'layouts/header'
 
-%table
-  %thead
-    %tr
-      %th Nome
-      %th Sexo
-      %th Classe
-      %th Senha
-  %tbody
-    - @alunos.each do |aluno|
+%stripes
+  #container
+    = render 'layouts/stripes'
+    
+.center.well
+  %h1 Lista de alunos
+
+  %table.table.table-hover.table-condensed
+    %thead
       %tr
-        %td= aluno.name
-        %td= aluno.sexo
-        %td= aluno.classe
-        %td= aluno.rand_pass
-        %td 
-          %a{:href => 'alunos/edit/' + aluno.id.to_s}= "Editar"
-        %td= button_to 'Deletar', 'alunos/delete/' + aluno.id.to_s, :method => :delete
+        %th Nome
+        %th Sexo
+        %th Classe
+        %th Senha
+    %tbody
+      - @alunos.each do |aluno|
+        %tr
+          %td= aluno.name
+          %td= aluno.sexo
+          %td= aluno.classe
+          %td= aluno.rand_pass
+          %td
+            %a{:href => 'alunos/edit/' + aluno.id.to_s}= "Editar"
+          %td= button_to 'Deletar', 'alunos/delete/' + aluno.id.to_s, :method => :delete, class: "btn btn-danger"
          
+#content
+  = yield
+  = render 'layouts/footer'

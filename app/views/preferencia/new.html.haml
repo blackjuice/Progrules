@@ -1,3 +1,17 @@
+= stylesheet_link_tag 'application', media: 'all', |
+  'data-turbolinks-track' => true                  |
+= javascript_include_tag 'application', 'data-turbolinks-track' => true
+= csrf_meta_tags
+= render 'layouts/shim'
+
+%header.navbar.navbar-fixed-top.navbar-inverse
+  #container
+    = render 'layouts/header'
+
+%stripes
+  #container
+    = render 'layouts/stripes'
+
 %h1 Inserir preferências
 
 = form_tag do
@@ -11,3 +25,7 @@
   = select :preferencia, :preferencia3, @possible_names
   %br
   = submit_tag 'Inserir'
+
+#content
+  = yield
+  = render 'layouts/footer'

@@ -28,6 +28,23 @@ Mount app
     $ rake db:create
     $ rake db:migrate
     $ rails server
+    
+###Compilação
+Instale e configure o GNU Linear Programming Kit (GLPK) (provavelmente é melhor executar como superuser)
+
+    $ wget http://ftp.gnu.org/gnu/glpk/glpk-4.57.tar.gz
+    $ tar -zxvf glpk-4.57.tar.gz
+    $ cd glpk-4.57
+    $ ./configure
+    $ make
+    $ make install
+    $ sudo ldconfig
+    
+No diretório de scripts (Progrules/scripts)
+
+    $ gcc -c first.c
+    $ gcc first.o -lglpk -lm -o main
+    $ mv main ../
 
 Em seguida, em um browser como Google Chrome, entre com o link: [http://localhost:3000](http://localhost:3000)
 

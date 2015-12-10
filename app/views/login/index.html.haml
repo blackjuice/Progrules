@@ -1,15 +1,31 @@
-%h1 Seleção de grupos inteligente
-%h2 by Progrules
+= stylesheet_link_tag 'application', media: 'all', |
+  'data-turbolinks-track' => true                  |
+= javascript_include_tag 'application', 'data-turbolinks-track' => true
+= csrf_meta_tags
+= render 'layouts/shim'
 
-%h3= flash[:notice]
+%header.navbar.navbar-fixed-top.navbar-inverse
+  #container
+    = render 'layouts/header'
 
-%p Login:
-%form{:action => "login", :method=> "post"}
-  %label Username 
-  %input{:name => "name"}
-  %label Senha 
-  %input{:name => "pass", :type => "password"}
-  %button{:type => "submit"} Login
+%stripes
+  #container
+    = render 'layouts/stripes'
 
-%a{:href => 'login/new'} Cadastro de administrador
+.center.jumbotron
+  %h1 Seleção de grupos inteligente
+  %h2 by Progrules
 
+  %form.pure-form{:action => "login", :method=> "post"}
+    %fieldset
+      %input{:placeholder => "Usuário", :name => "name"}
+      %input{:placeholder => "Senha", :name => "pass", :type => "password"}
+      %button.btn.btn-primary{:type => "submit"} Login
+      %a.btn.btn-info{:href => 'login/new'} Novo cadastro
+
+.flash
+  = flash[:notice]
+
+#content
+  = yield
+  = render 'layouts/footer'

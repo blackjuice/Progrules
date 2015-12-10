@@ -16,13 +16,19 @@ body {
 }
 
 .modelo{
-    background-color: aquamarine;
-    border: 1px solid black;
+    background-color: #ffe5e5;
+    border-color: #f2f2f2;
+    border-style: groove;
+    border-radius: 10px;
     width: 50%;
     position: relative;
     left: 45%;
     bottom: 21%;
     padding: 0.5%;
+}
+
+.modelo:hover{
+    background-color: ffcccc;
 }
 
 .hidden{
@@ -40,4 +46,16 @@ body {
     padding-right: 2.1%; 
 }
 
+.gerador_box{
+    background-color: #e6e6e6;
+    padding-left: 2.1%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+}
 
+.flash {
+    font-size: 15px;
+    color: red;
+    text-align: center;
+    text-transform: uppercase;
+}

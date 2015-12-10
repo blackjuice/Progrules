@@ -4,18 +4,18 @@ Feature: Aluno Creation
   I want to be able to create new aluno entries
 
   Scenario: with valid fields
-    Given I have an aluno with name "Gideao" and classe "C" and sexo "M"
+    Given I am an Admin named "Judah" with pass_hash "Elohim"
+    And I have an aluno with name "Gideao" and classe "C" and sexo "M"
     And I am at the aluno creation page
     When I fill the "name" field with "Gideao"
-    And I fill the "classe" label with "C"
-    And I fill the "sexo" label with "M"
-    And I submit the "Inserir" tag
-    Then I should see "Gideao"
-    And I should see "AABBCC"
-    And I should see "C"
-    And I should see "M"
+    And I set the "classe" label to "C"
+    And I set the "sexo" label to "M"
+    And I press "Inserir"
+    Then I should be sent to "professor"
+    And I should see "Seleção de grupos inteligente"
 
   Scenario: without a name
     Given I am at the aluno creation page
     When I submit the "Inserir" tag
-    Then I should see "Name can't be blank"
+    Then I should be sent to "homepage"
+    Then I should see "Seleção de grupos inteligente"
