@@ -1,10 +1,10 @@
-A,James Potter,F, George Lucas, Lilian Potter, Matoi Ryuko
-B,George Lucas, M, James Potter, Lilian Potter, Peter Pan
-C,Lilian Potter,F, George Lucas, James Potter, Matoi Ryuko
-B,Matoi Ryuko,F, James Potter, Lilian Potter, George Lucas
-D,Peter Pan,M, Yagami Raito, Chihiro Sen, Doctor Pepper
-A,Yagami Raito,F, Peter Pan, Chihiro Sen, Doctor Pepper
-D,Chihiro Sen,M, Yagami Raito, Peter Pan, Doctor Pepper
-D,Doctor Pepper,M, Peter Pan, Chihiro Sen, Yagami Raito
-C,Saitama,M, Genus
-A,Genus,M, Saitama
+A,James Potter,F,George Lucas,Lilian Potter,Matoi Ryuko
+B,George Lucas, M,James Potter,Lilian Potter,Peter Pan
+C,Lilian Potter,F,George Lucas,James Potter,Matoi Ryuko
+B,Matoi Ryuko,F,James Potter,Lilian Potter,George Lucas
+D,Peter Pan,M,Yagami Raito,Chihiro Sen,Doctor Pepper
+A,Yagami Raito,F,Peter Pan,Chihiro Sen,Doctor Pepper
+D,Chihiro Sen,M,Yagami Raito,Peter Pan,Doctor Pepper
+D,Doctor Pepper,M,Peter Pan,Chihiro Sen,Yagami Raito
+C,Saitama,M,Genus
+A,Genus,M,Saitama
