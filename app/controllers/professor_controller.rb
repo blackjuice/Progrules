@@ -80,6 +80,7 @@ class ProfessorController < ApplicationController
         prefs_value
       end
     }
+    #Escreve matriz
     writer = File.new("mymatrix", "w+")
     writer.puts(test.count)
     for i in 0..test.count 
@@ -90,7 +91,21 @@ class ProfessorController < ApplicationController
       writer.write("\n")
     end
     writer.close
-    @text = `./main < mymatrix`
+
+    #Executa script em C
+    system("./main < mymatrix")
+    
+    #Le resposta e mostra ao usuario
+    numlines = 1
+    reader = File.new("results.txt", "r")
+    while (line = reader.gets)
+      @text += "<h2>Grupo <b>#{numlines}</b></h2>"
+      line.split(",").each do |alunoid| 
+        ref = Aluno.find(coming[alunoid.to_i])
+        @text += "<p>" + ref.name + "</p>"
+      end
+      numlines += 1
+    end
   end
               
   def upload 
