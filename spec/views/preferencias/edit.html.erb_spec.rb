@@ -22,7 +22,7 @@ RSpec.describe "preferencias/index", :type => :view do
     ])
   end
 
-  it "renders a list of widgets" do
+  it "renders a list of preferencias" do
     render
     assert_select "tr>td", :text => "Name".to_s, :count => 2
     assert_select "tr>td", :text => "Ordem".to_s, :count => 2

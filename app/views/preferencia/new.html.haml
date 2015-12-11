@@ -15,7 +15,7 @@
 %h1 Inserir preferências
 
 .well.well-sm
-  %h4 Com atenção, pense em 3 colegas, por ordem de preferência, com quem você gostaria de dividir o quarto durante a Viagem à Espanha:
+  %h4{:style => "margin-left: 2px; font-size: 16px"} Com atenção, pense em 3 colegas, por ordem de preferência, com quem você gostaria de dividir o quarto durante a Viagem à Espanha:
 
   = form_tag do
     = label :preferencia, :preferencia1, 'Escolha 1'
@@ -32,3 +32,5 @@
 #content
   = yield
   = render 'layouts/footer'
+
+%img{:alt => "logo", :src => "/cervantes.png", :style => "float:right; width:30%; height:auto;"}

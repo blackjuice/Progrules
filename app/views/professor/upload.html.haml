@@ -12,10 +12,15 @@
   #container
     = render 'layouts/stripes'
 
-%h1 Resultados
+.well
+  %h1 Resultados
 
-%div= raw @text
+  %div= raw @text
+
+%a.btn.btn-default{:href => professor_path()} Voltar
 
 #content
   = yield
   = render 'layouts/footer'
+
+%img{:alt => "logo", :src => "/cervantes.png", :style => "float:right; width:30%; height:auto;"}

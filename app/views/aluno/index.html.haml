@@ -32,7 +32,11 @@
           %td
             %a{:href => 'alunos/edit/' + aluno.id.to_s}= "Editar"
           %td= button_to 'Deletar', 'alunos/delete/' + aluno.id.to_s, :method => :delete, class: "btn btn-danger"
-         
+
+%a.btn.btn-default{:href => professor_path()} Voltar
+
 #content
   = yield
   = render 'layouts/footer'
+
+%img{:alt => "logo", :src => "/cervantes.png", :style => "float:right; width:30%; height:auto;"}
